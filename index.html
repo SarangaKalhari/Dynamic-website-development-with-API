@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Store</title>
-    <link rel="stylesheet" href="/asseets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
+
 <body>
-    
+    <header>
+        <div>
+            <h1>🎬 Movie Store</h1>
+        </div>
+
+        <div>
+            <input type="text" id="searchInput" placeholder="Search movies...">
+            <input type="button" id="searchInput" value="🔍">
+        </div>
+    </header>
+
+    <main>
+        <section id="trending">
+            <h2>Trending Movies</h2>
+            <div id="movieList" class="grid"></div>
+        </section>
+    </main>
 
     <script src="/asseets/js/app.js"></script>
 </body>
+
 </html>
