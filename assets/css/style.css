@@ -27,14 +27,14 @@ header {
   background: white;
 }
 
-.search-btn{
+.search-btn {
   width: 100px;
   height: 25px;
   border-radius: 30px;
   background: linear-gradient(rgb(99, 229, 224), rgba(76, 233, 154, 0.938));
 }
 
-.search-box{
+.search-box {
   margin-top: 25px;
 }
 
@@ -44,29 +44,67 @@ header {
   gap: 1rem;
   padding: 1rem;
 }
+
 .single-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 30px;
 }
 
 img {
-    height: 251px;
-    width: 201px;
-    border: 3px solid rgb(245, 239, 67);
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-    outline: none;
-    transition: 0.3s;
+  height: 251px;
+  width: 201px;
+  border: 3px solid rgb(245, 239, 67);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  outline: none;
+  transition: 0.3s;
 }
 
 img:hover {
-    transform: scale(1.05);
-    border: 6px solid;
-    border-image: linear-gradient(45deg, #57ebde, #d8f118) 1;
-    border-radius: 10px;
-    padding: 10px;
+  transform: scale(1.05);
+  border: 6px solid;
+  border-image: linear-gradient(45deg, #57ebde, #d8f118) 1;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+
+/* ------------search page--------------- */
+
+.data {
+  margin-bottom: 20px;
+}
+
+.film-details {
+  display: flex;
+}
+
+
+.film-details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 30px;
+}
+
+.main-label {
+  font-family: "Fredoka", sans-serif;
+  font-size: 25px;
+  font-weight: 550;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+  margin-right: 20px;
+}
+
+.sub-label {
+  font-family: "Barlow", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 20px;
 }
