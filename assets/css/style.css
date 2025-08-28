@@ -1,15 +1,41 @@
 body {
   font-family: Arial, sans-serif;
-  background: #0f172a;
+  background: #071e40;
   color: white;
   margin: 0;
+
 }
 
 header {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  background: #071e40;
+  /* background: #071e40; */
+  background: radial-gradient(rgb(108, 108, 202), #071e40);
+
+}
+
+.content {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.search-bar {
+  width: 300px;
+  height: 25px;
+  border-radius: 30px;
+  background: white;
+}
+
+.search-btn{
+  width: 100px;
+  height: 25px;
+  border-radius: 30px;
+  background: linear-gradient(rgb(99, 229, 224), rgba(76, 233, 154, 0.938));
+}
+
+.search-box{
+  margin-top: 25px;
 }
 
 .grid {
@@ -25,9 +51,11 @@ header {
   overflow: hidden;
   transition: transform .3s;
 }
+
 .movie-card:hover {
   transform: scale(1.05);
 }
+
 .movie-card img {
   width: 100%;
   display: block;
