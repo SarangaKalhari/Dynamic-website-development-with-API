@@ -44,19 +44,29 @@ header {
   gap: 1rem;
   padding: 1rem;
 }
-
-.movie-card {
-  background: #1e293b;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform .3s;
+.single-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 30px;
 }
 
-.movie-card:hover {
-  transform: scale(1.05);
+img {
+    height: 251px;
+    width: 201px;
+    border: 3px solid rgb(245, 239, 67);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    outline: none;
+    transition: 0.3s;
 }
 
-.movie-card img {
-  width: 100%;
-  display: block;
+img:hover {
+    transform: scale(1.05);
+    border: 6px solid;
+    border-image: linear-gradient(45deg, #57ebde, #d8f118) 1;
+    border-radius: 10px;
+    padding: 10px;
 }
