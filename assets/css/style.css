@@ -36,8 +36,16 @@ header {
 
 .search-box {
   margin-top: 25px;
+  margin-bottom: 20px;
 }
 
+
+.home-btn{
+  color: yellow;
+  margin-top: 20px;
+  
+
+}
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
