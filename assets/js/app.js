@@ -3,7 +3,6 @@ console.log("Hi !!")
 
 
 document.getElementById("btnSearch").addEventListener("click", function () {
-    // redirect to search.html
     window.location.href = "search.html";
 });
 
@@ -27,7 +26,7 @@ btnSearch.addEventListener("click", () => {
 });
 
 async function callAPI(movie = "") {
-    fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=27cb0e1d&t=${movie}`)
+    fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=27cb0e1d&t=${movie}`)
         .then((responce) => responce.json())
         .then((data) => {
             if (data.Response === "True") {
@@ -38,7 +37,7 @@ async function callAPI(movie = "") {
 
         })
 
-    fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=27cb0e1d&s=${movie}`)
+    fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=27cb0e1d&s=${movie}`)
         .then((res) => res.json())
         .then((data) => {
             if (data.Responce === "True") {
