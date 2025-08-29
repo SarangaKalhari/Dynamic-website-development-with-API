@@ -1,5 +1,10 @@
 console.log("Hi !!")
 
+document.getElementById("btnSearch").addEventListener("click", function() {
+    
+    window.location.href = "search.html"; 
+  });
+
 let movieName = document.getElementById("searchInput");
 let btnSearch = document.getElementById("btnSearch");
 
@@ -12,14 +17,16 @@ movieName.addEventListener("keypress", e => {
 });
 
 btnSearch.addEventListener("click", () => {
+    
     console.log(movieName.value);
     callAPI(movieName.value.trim());
-})
-async  function callAPI() {
-    fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=6b458860=${movie}`)
-    .then((response) => response.json())
+});
+
+async  function callAPI(movie="" ) {
+    fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=27cb0e1d&t=${movie}`)
+    .then((responce) => responce.json())
     .then((data) => {
-        if (data.response === "True") {
+        if (data.Response === "True") {
             setDetails(data);
         }else {
             alert("movie not  found !");
@@ -27,10 +34,10 @@ async  function callAPI() {
         
     })
     
-    fetch(`https://www.omdbapi.com/?apikey=6b458860=${movie}`)
-    .then(res => res.json())
-    .then(data => {
-        if (data.response === "True") {
+    fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=27cb0e1d&s=${movie}`)
+    .then((res) => res.json())
+    .then((data) => {
+        if (data.Responce === "True") {
             keywordResult = data.Search;
             displayKeywordResult(keywordResult);
 
@@ -38,11 +45,11 @@ async  function callAPI() {
     })
 }
 
-function displayKeywordResult(result) {
+function displayKeywordResult(results) {
     const container = document.getElementById("keyword-result");
     container.innerHTML = "";
 
-    results.forEach(element => {
+    results.forEach(movie => {
         const div = document.createElement("div");
         div.className = "keyword-movie";
         div.innerHTML = `
@@ -53,4 +60,40 @@ function displayKeywordResult(result) {
     });
     
 }
+
+function setDetails(movieData) {
+    let movie = document.getElementById("title");
+    let year = document.getElementById("released_year");
+    let imdb = document.getElementById("imdb");
+    // let casting = document.getElementById("cast");
+    // let category = document.getElementById("categories");
+     let images = document.getElementById("image");
+    let gen = document.getElementById("genre");
+    let director = document.getElementById("director");
+    let writer =document.getElementById("writer");
+    let actor = document.getElementById("actors");
+    let plott = document.getElementById("plot");
+    let country =document.getElementById("country");
+    let language = document.getElementById("lang");
+    let awards = document.getElementById("awards");
+    
+    
+
+    movie.innerText = movieData.Title;
+    year.innerText = movieData.Year;
+    imdb.innerText = movieData.imdbRating;
+    images.src = movieData.Poster;
+    gen.innerText = movieData.Genre;
+    director.innerText = movieData.Director;
+    writer.innerText = movieData.Writer;
+    actor.innerText = movieData.Actors;
+    plott.innerText = movieData.Plot;
+    country.innerText = movieData.Country;
+    language.innerText = movieData.Language;
+    awards.innerText = movieData.Awards;
+    
+}
+
+
+
 
