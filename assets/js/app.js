@@ -1,15 +1,28 @@
 console.log("Hi !!")
 
 
+let movieName = document.getElementById("searchInput");
+let btnSearch = document.getElementById("btnSearch");
 
 document.getElementById("btnSearch").addEventListener("click", function () {
-    // redirect to search.html
-    window.location.href = "search.html";
+    let movieTitle = document.getElementById("searchInput").value.trim();
+    if (movieTitle) {
+        window.location.href = "search.html?title=" + encodeURIComponent(movieTitle);
+    }
+});
+
+// ------------------ Search Page Auto Load ------------------
+window.addEventListener("DOMContentLoaded", () => {
+    let params = new URLSearchParams(window.location.search);
+    let movieTitle = params.get("title");
+
+    if (movieTitle) {
+        document.getElementById("searchInput").value = movieTitle;
+        callAPI(movieTitle); // auto run API call
+    }
 });
 
 
-let movieName = document.getElementById("searchInput");
-let btnSearch = document.getElementById("btnSearch");
 
 
 
@@ -41,29 +54,28 @@ async function callAPI(movie = "") {
     fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=27cb0e1d&s=${movie}`)
         .then((res) => res.json())
         .then((data) => {
-            if (data.Responce === "True") {
-                keywordResult = data.Search;
-                displayKeywordResult(keywordResult);
+            if (data.Response === "True") {
+                keywordFunction = data.Search;
+                showKeywordResult(keywordFunction);
 
             }
         })
 }
 
-// function showKeywordResult(results) {
-//     const container = document.getElementById("keyword-function");
-//     container.innerHTML = "";
+function showKeywordResult(results) {
+    const container = document.getElementById("keywordFunction");
+    container.innerHTML = "";
 
-//     results.forEach(movie => {
-//         const div = document.createElement("div");
-//         div.className = "keyword-movie";
-//         div.innerHTML = `
-//             <p>${movie.Title} </p>
-//             <img src= "${movie.Poster}" alt= "" width = "100"> 
-//         `;
-//         container.appendChild(div);
-//     });
-
-// }
+    results.forEach(movie => {
+        const div = document.createElement("div");
+        div.className = "keyword-movie";
+        div.innerHTML = `
+            <p>${movie.Title} </p>
+            <img src= "${movie.Poster}" alt= "" width = "100"> 
+        `;
+        container.appendChild(div);
+    });
+}
 
 function setDetails(movieData) {
     let movie = document.getElementById("title");
