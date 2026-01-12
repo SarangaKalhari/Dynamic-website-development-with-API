@@ -1,5 +1,3 @@
-console.log("Hi !!")
-
 
 let movieName = document.getElementById("searchInput");
 let btnSearch = document.getElementById("btnSearch");
@@ -22,8 +20,6 @@ window.addEventListener("DOMContentLoaded", () => {
         callAPI(movieTitle); // auto run API call
     }
 });
-
-
 
 
 
@@ -79,11 +75,11 @@ function showKeywordResult(results) {
 }
 
 function setDetails(movieData) {
+
+    // ---get data from DOM--
     let movie = document.getElementById("title");
     let year = document.getElementById("released_year");
     let imdb = document.getElementById("imdb");
-    // let casting = document.getElementById("cast");
-    // let category = document.getElementById("categories");
     let images = document.getElementById("image");
     let gen = document.getElementById("genre");
     let director = document.getElementById("director");
@@ -95,7 +91,7 @@ function setDetails(movieData) {
     let awards = document.getElementById("awards");
 
 
-
+    // ---set data to DOM--
     movie.innerText = movieData.Title;
     year.innerText = movieData.Year;
     imdb.innerText = movieData.imdbRating;
