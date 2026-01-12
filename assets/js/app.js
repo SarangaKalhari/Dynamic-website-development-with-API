@@ -8,6 +8,7 @@ document.getElementById("btnSearch").addEventListener("click", function () {
     let movieTitle = document.getElementById("searchInput").value.trim();
     if (movieTitle) {
         window.location.href = "search.html?title=" + encodeURIComponent(movieTitle);
+
     }
 });
 
@@ -39,8 +40,8 @@ btnSearch.addEventListener("click", () => {
     callAPI(movieName.value.trim());
 });
 
-async function callAPI(movie = "") {
-    fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=27cb0e1d&t=${movie}`)
+async function callAPI(movie = movieName) {
+    await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=27cb0e1d&t=${movie}`)
         .then((responce) => responce.json())
         .then((data) => {
             if (data.Response === "True") {
@@ -51,7 +52,7 @@ async function callAPI(movie = "") {
 
         })
 
-    fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=27cb0e1d&s=${movie}`)
+    await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=27cb0e1d&s=${movie}`)
         .then((res) => res.json())
         .then((data) => {
             if (data.Response === "True") {
